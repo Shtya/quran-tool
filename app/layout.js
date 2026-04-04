@@ -1,20 +1,29 @@
 import "./globals.css";
+import PWARegister from "../components/PWARegister";
 
 export const metadata = {
   title: "مصحف المراجعة - أداة حفظ القرآن الكريم",
   description: "أداة ذكية لمراجعة وتحسين حفظ القرآن الكريم",
+  applicationName: "مصحف المراجعة",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "مصحف المراجعة",
+  },
+};
+
+export const viewport = {
+  themeColor: "#1F7A63",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
       <body className="min-h-screen bg-background font-arabic">
+        <PWARegister />
         {children}
       </body>
     </html>
