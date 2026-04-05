@@ -803,19 +803,19 @@ textarea.input{resize:none;line-height:1.8;}
 .cal-dot{width:4px;height:4px;border-radius:50%;background:var(--green);position:absolute;bottom:3px;left:50%;transform:translateX(-50%);}
 .audio-player{position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border2);padding:10px 18px max(10px,env(safe-area-inset-bottom));z-index:80;box-shadow:0 -4px 24px rgba(0,0,0,0.1);backdrop-filter:blur(20px);animation:slideUp 0.26s cubic-bezier(0.4,0,0.2,1);}
 @media(min-width:769px){.audio-player{right:var(--sidebar-w);}}
-.quran-text{font-family:var(--font-amiri),'Noto Naskh Arabic','Amiri',serif;line-height:2.55;color:var(--ink);text-align:justify;direction:rtl;}
+.quran-text{font-family:'Scheherazade New','Noto Naskh Arabic','Amiri',serif;line-height:2.55;color:var(--ink);text-align:justify;direction:rtl;}
 .quran-sm{font-size:var(--quran-sm);}
 .quran-md{font-size:var(--quran-md);}
 .quran-lg{font-size:var(--quran-lg);}
 .verse-num{display:inline-flex;align-items:center;justify-content:center;width:1.8em;height:1.8em;border-radius:50%;background:var(--gold-bg);border:1px solid var(--gold-border);color:var(--gold2);font-size:0.56em;font-family:'Tajawal',sans-serif;font-weight:700;vertical-align:middle;margin:0 3px;flex-shrink:0;cursor:pointer;transition:all 0.12s;-webkit-tap-highlight-color:transparent;}
 .verse-num:hover{background:var(--gold);color:white;border-color:var(--gold);}
-.verse-span{cursor:pointer;border-radius:4px;padding:2px;transition:background 0.12s;display:inline;-webkit-tap-highlight-color:transparent;}
+.verse-span{cursor:pointer;border-radius:4px;padding:0;transition:background 0.12s;display:inline;-webkit-tap-highlight-color:transparent;}
 .verse-span:hover{background:var(--gold-bg);}
 .verse-span.has-mistake{background:var(--red-bg);border-bottom:2px solid var(--red2);}
 .verse-span.selected{background:var(--green-bg);outline:2px solid var(--green-border);border-radius:4px;}
 .verse-span.playing{background:var(--gold-bg);border-bottom:2px solid var(--gold3);}
 .verse-span.bookmarked{background:var(--blue-bg);}
-.bismillah{text-align:center;font-family:var(--font-amiri),serif;font-size:clamp(20px,5vw,27px);color:var(--gold2);padding:18px 20px;border-radius:var(--r-xl);background:linear-gradient(135deg,var(--gold-bg),var(--green-bg));border:1px solid var(--gold-border);margin-bottom:18px;line-height:2.2;}
+.bismillah{text-align:center;font-family:'Scheherazade New',serif;font-size:clamp(20px,5vw,27px);color:var(--gold2);padding:18px 20px;border-radius:var(--r-xl);background:linear-gradient(135deg,var(--gold-bg),var(--green-bg));border:1px solid var(--gold-border);margin-bottom:18px;line-height:2.2;}
 .surah-divider{text-align:center;padding:13px;border-radius:var(--r-lg);background:linear-gradient(135deg,var(--gold-bg) 0%,var(--green-bg) 100%);border:1px solid var(--border);margin:18px 0;}
 .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:15px 12px;text-align:center;box-shadow:var(--shadow-xs);}
 .stat-num{font-size:26px;font-weight:900;line-height:1;}
@@ -842,7 +842,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 .verse-hidden{filter:blur(10px);user-select:none;pointer-events:none;transition:filter 0.4s;}
 .verse-revealed{filter:none;transition:filter 0.4s;}
 .ward-card{background:linear-gradient(135deg,var(--green) 0%,var(--green2) 60%,var(--green3) 100%);border-radius:var(--r-xl);padding:20px;color:white;position:relative;overflow:hidden;}
-.ward-card::after{content:'﷽';position:absolute;bottom:-12px;left:8px;font-family:var(--font-amiri),serif;font-size:88px;opacity:0.05;line-height:1;pointer-events:none;}
+.ward-card::after{content:'﷽';position:absolute;bottom:-12px;left:8px;font-family:'Scheherazade New',serif;font-size:88px;opacity:0.05;line-height:1;pointer-events:none;}
 .palette-btn{width:28px;height:28px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all 0.15s;flex-shrink:0;}
 .palette-btn.active{border-color:var(--ink);transform:scale(1.15);}
 .review-header{position:sticky;top:0;z-index:40;background:var(--surface);border-bottom:1px solid var(--border);padding:11px 16px;backdrop-filter:blur(16px);}
@@ -1175,7 +1175,7 @@ export default function App() {
             ))}
           </nav>
           <div style={{ padding: '12px 16px', borderTop: '1px solid var(--border)' }}>
-            <div style={{ fontFamily: "var(--font-amiri),serif", fontSize: 13, color: 'var(--ink4)', textAlign: 'center', lineHeight: 2.2 }}>﴿ وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا ﴾</div>
+            <div style={{ fontFamily: "'Scheherazade New',serif", fontSize: 13, color: 'var(--ink4)', textAlign: 'center', lineHeight: 2.2 }}>﴿ وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا ﴾</div>
           </div>
         </aside>
 
@@ -1649,7 +1649,7 @@ function StartReviewModal({ onStart, onClose }) {
                     onMouseLeave={e => (e.currentTarget.style.background = 'none')}>
                     <div style={{ width: 30, height: 30, borderRadius: '8px', background: 'var(--gold-bg)', border: '1px solid var(--gold-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10.5, fontWeight: 800, color: 'var(--gold2)', flexShrink: 0 }}>{s.id}</div>
                     <div style={{ flex: 1, textAlign: 'right' }}>
-                      <div style={{ fontFamily: "var(--font-amiri),serif", fontWeight: 700, fontSize: 15 }}>{s.name_arabic}</div>
+                      <div style={{ fontFamily: "'Scheherazade New',serif", fontWeight: 700, fontSize: 15 }}>{s.name_arabic}</div>
                       <div style={{ fontSize: 11, color: 'var(--ink4)' }}>{s.verses_count} آية</div>
                     </div>
                     <ChevronLeft size={13} color='var(--ink4)' />
@@ -2129,7 +2129,7 @@ function TafsirModal({ verseKey, verseText, tafsirId, onClose }) {
               <div style={{ fontSize: 12, marginTop: 5 }}>جرّب تفسيراً آخر</div>
             </div>
           ) : (
-            <div style={{ fontSize: 15, lineHeight: 2.4, color: 'var(--ink)', fontFamily: "'Noto Naskh Arabic',var(--font-amiri),serif", direction: 'rtl', textAlign: 'justify', whiteSpace: 'pre-line' }}>{cleanText(tafsir.text)}</div>
+            <div style={{ fontSize: 15, lineHeight: 2.4, color: 'var(--ink)', fontFamily: "'Noto Naskh Arabic','Scheherazade New',serif", direction: 'rtl', textAlign: 'justify', whiteSpace: 'pre-line' }}>{cleanText(tafsir.text)}</div>
           )}
         </div>
       </div>
@@ -2897,7 +2897,7 @@ function QuartersScreen({ onPlayAudio, settings, playingKey }) {
       </div>
 
       <div style={{ padding: '10px 14px', borderRadius: 'var(--r-md)', background: 'var(--gold-bg)', border: '1px solid var(--gold-border)', marginBottom: 14, fontSize: 12.5, color: 'var(--gold2)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 10 }}>
-        <span style={{ fontFamily: "var(--font-amiri),serif", fontSize: 24, lineHeight: 1 }}>۞</span>
+        <span style={{ fontFamily: "'Scheherazade New',serif", fontSize: 24, lineHeight: 1 }}>۞</span>
         <span>علامة ربع الحزب — تُقسّم القرآن إلى 240 جزءاً للمراجعة</span>
       </div>
 
@@ -2919,7 +2919,7 @@ function QuartersScreen({ onPlayAudio, settings, playingKey }) {
               <div style={{ display: 'flex', alignItems: 'center', gap: 11 }}>
                 <div style={{ width: 34, height: 34, borderRadius: '9px', background: 'var(--gold-bg)', border: '1px solid var(--gold-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 800, color: 'var(--gold2)', flexShrink: 0 }}>{surah.id}</div>
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontWeight: 800, fontSize: 15, fontFamily: "var(--font-amiri),serif" }}>{surah.name_arabic}</div>
+                  <div style={{ fontWeight: 800, fontSize: 15, fontFamily: "'Scheherazade New',serif" }}>{surah.name_arabic}</div>
                   <div style={{ fontSize: 11, color: 'var(--ink4)' }}>
                     {surah.verses_count} آية · {surah.revelation_place === 'makkah' ? 'مكية' : 'مدنية'}
                   </div>
@@ -2938,13 +2938,13 @@ function QuartersScreen({ onPlayAudio, settings, playingKey }) {
                   </div>
                 ) : markers.length === 0 ? (
                   <div style={{ textAlign: 'center', color: 'var(--ink4)', padding: '18px 0', fontSize: 13 }}>
-                    <span style={{ fontFamily: "var(--font-amiri),serif", fontSize: 28, display: 'block', marginBottom: 8, opacity: 0.4 }}>۞</span>
+                    <span style={{ fontFamily: "'Scheherazade New',serif", fontSize: 28, display: 'block', marginBottom: 8, opacity: 0.4 }}>۞</span>
                     لا توجد علامات حزب داخل هذه السورة
                   </div>
                 ) : (
                   <>
                     <div style={{ fontSize: 11.5, fontWeight: 700, color: 'var(--ink4)', marginBottom: 10, display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <span style={{ fontFamily: "var(--font-amiri),serif", fontSize: 16, color: 'var(--gold2)' }}>۞</span>
+                      <span style={{ fontFamily: "'Scheherazade New',serif", fontSize: 16, color: 'var(--gold2)' }}>۞</span>
                       {markers.length} موضع في سورة {surah.name_arabic}
                     </div>
                     {markers.map((m, i) => (
@@ -2963,7 +2963,7 @@ function QuartersScreen({ onPlayAudio, settings, playingKey }) {
                         }}>
                         <div style={{ flex: 1, minWidth: 0 }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 5 }}>
-                            <span style={{ fontFamily: "var(--font-amiri),serif", fontSize: 20, color: 'var(--gold2)', lineHeight: 1 }}>۞</span>
+                            <span style={{ fontFamily: "'Scheherazade New',serif", fontSize: 20, color: 'var(--gold2)', lineHeight: 1 }}>۞</span>
                             <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--green)', background: 'var(--green-bg)', border: '1px solid var(--green-border)', padding: '2px 8px', borderRadius: '999px' }}>{m.label}</span>
                             <span className='badge badge-gray'>آية {m.verse_number}</span>
                           </div>
@@ -3063,7 +3063,7 @@ function SettingsScreen({ settings, onChange }) {
               { id: 'md', l: 'م', size: 18 },
               { id: 'lg', l: 'ك', size: 22 },
             ].map(s => (
-              <button key={s.id} onClick={() => onChange({ quranFontSize: s.id })} style={{ width: 34, height: 34, borderRadius: '9px', border: `1.5px solid ${settings.quranFontSize === s.id ? 'var(--green)' : 'var(--border2)'}`, background: settings.quranFontSize === s.id ? 'var(--green-bg)' : 'transparent', color: settings.quranFontSize === s.id ? 'var(--green)' : 'var(--ink3)', fontWeight: 700, fontSize: s.size - 2, cursor: 'pointer', fontFamily: "var(--font-amiri),serif" }}>
+              <button key={s.id} onClick={() => onChange({ quranFontSize: s.id })} style={{ width: 34, height: 34, borderRadius: '9px', border: `1.5px solid ${settings.quranFontSize === s.id ? 'var(--green)' : 'var(--border2)'}`, background: settings.quranFontSize === s.id ? 'var(--green-bg)' : 'transparent', color: settings.quranFontSize === s.id ? 'var(--green)' : 'var(--ink3)', fontWeight: 700, fontSize: s.size - 2, cursor: 'pointer', fontFamily: "'Scheherazade New',serif" }}>
                 {s.l}
               </button>
             ))}
@@ -3154,8 +3154,8 @@ function SettingsScreen({ settings, onChange }) {
         <div style={{ width: 52, height: 52, borderRadius: '14px', background: 'linear-gradient(135deg,var(--green),var(--green2))', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px', boxShadow: '0 4px 12px var(--green-glow)' }}>
           <BookOpen size={22} color='white' />
         </div>
-        <div style={{ fontFamily: "var(--font-amiri),serif", fontSize: 22, color: 'var(--gold2)', marginBottom: 5 }}>مراجع القرآن</div>
-        <div style={{ fontSize: 12, color: 'var(--ink4)', fontFamily: "var(--font-amiri),serif", lineHeight: 2 }}>﴿ إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ ﴾</div>
+        <div style={{ fontFamily: "'Scheherazade New',serif", fontSize: 22, color: 'var(--gold2)', marginBottom: 5 }}>مراجع القرآن</div>
+        <div style={{ fontSize: 12, color: 'var(--ink4)', fontFamily: "'Scheherazade New',serif", lineHeight: 2 }}>﴿ إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ ﴾</div>
       </div>
     </div>
   );

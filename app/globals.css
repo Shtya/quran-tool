@@ -1,20 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --primary: #1f7a63;
-  --secondary: #e8f3ef;
-  --background: #fdfbf7;
-  --accent: #c8a96a;
-  --error: #d64545;
+  --primary: #1F7A63;
+  --secondary: #E8F3EF;
+  --background: #FDFBF7;
+  --accent: #C8A96A;
+  --error: #D64545;
 }
-
-
 
 * {
   box-sizing: border-box;
-  font-family: var(--font-amiri), 'Noto Naskh Arabic', serif !important;
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif !important;
 }
 
 html {
@@ -23,28 +23,14 @@ html {
 
 body {
   background-color: var(--background);
-  font-family: var(--font-amiri), 'Noto Naskh Arabic', serif;
-  color: #2d2d2d;
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  color: #2D2D2D;
 }
 
 .dark body {
   background-color: #1a1a1a;
   color: #e8e8e8;
 }
-
-
-/* .quran-text{font-family:var(--font-amiri),'Noto Naskh Arabic','Amiri',serif;line-height:2.55;color:var(--ink);text-align:justify;direction:rtl;} */
-
-.quran-text {
-  font-family: var(--font-quran), serif;
-  line-height: 2.2;
-  color: var(--ink);
-  text-align: right;
-  direction: rtl;
-  word-spacing: normal;
-  letter-spacing: normal;
-}
-
 
 @layer components {
   .mushaf-card {
@@ -72,14 +58,8 @@ body {
 }
 
 @keyframes modalIn {
-  from {
-    opacity: 0;
-    transform: scale(0.92) translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  from { opacity: 0; transform: scale(0.92) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .slide-up {
@@ -87,14 +67,8 @@ body {
 }
 
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .fade-in {
@@ -102,12 +76,8 @@ body {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .mistake-dot {
@@ -115,35 +85,19 @@ body {
 }
 
 @keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.7;
-  }
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
 }
 
 /* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 3px;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
 
 /* Page number input */
-input[type='number']::-webkit-outer-spin-button,
-input[type='number']::-webkit-inner-spin-button {
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type='number'] {
-  -moz-appearance: textfield;
-}
+input[type="number"] { -moz-appearance: textfield; }
