@@ -87,7 +87,7 @@ function getSettings() {
     defaultTafsir: '91',
     quranFontSize: 'md',
     reciter: 'ar.alafasy',
-    tajweedColors: true,
+    tajweedColors: false,
     palette: 'teal',
   });
 }
@@ -1696,7 +1696,8 @@ function ReviewPage({ page, setPage, from, to, taskId, settings, onFinish, onPla
   const menuRef = useRef(null);
   const sessionStart = useRef(new Date().toISOString());
   const qSizeClass = { sm: 'quran-sm', md: 'quran-md', lg: 'quran-lg' }[settings.quranFontSize] || 'quran-md';
-  const showTajweed = settings.tajweedColors !== false;
+  // const showTajweed = settings.tajweedColors !== false;
+  const showTajweed = false;
 
   const loadPage = useCallback(async () => {
     setLoading(true);
@@ -3069,13 +3070,13 @@ function SettingsScreen({ settings, onChange }) {
             ))}
           </div>
         </SettingRow>
-        <SettingRow label='ألوان التجويد' sub='تلوين الحروف حسب أحكام التجويد'>
+        {/* <SettingRow label='ألوان التجويد' sub='تلوين الحروف حسب أحكام التجويد'>
           <label className='switch'>
             <input type='checkbox' checked={settings.tajweedColors !== false} onChange={e => onChange({ tajweedColors: e.target.checked })} />
             <div className='switch-track' />
             <div className='switch-thumb' />
           </label>
-        </SettingRow>
+        </SettingRow> */}
       </SettingsSection>
 
       <SettingsSection title='إعدادات المراجعة'>
