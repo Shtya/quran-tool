@@ -29,7 +29,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='ar' dir='rtl' className={`${amiri.variable}`}>
+    <html lang='ar' dir='rtl' className={amiri.className}>
       <body className='min-h-screen bg-background font-arabic'>
         <PWARegister />
         {children}
