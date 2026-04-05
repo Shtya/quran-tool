@@ -10,9 +10,11 @@
   --error: #d64545;
 }
 
+
+
 * {
   box-sizing: border-box;
-  font-family: var(--font-amiri), 'Noto Naskh Arabic', serif;
+  font-family: var(--font-amiri), 'Noto Naskh Arabic', serif !important;
 }
 
 html {
@@ -29,6 +31,20 @@ body {
   background-color: #1a1a1a;
   color: #e8e8e8;
 }
+
+
+/* .quran-text{font-family:var(--font-amiri),'Noto Naskh Arabic','Amiri',serif;line-height:2.55;color:var(--ink);text-align:justify;direction:rtl;} */
+
+.quran-text {
+  font-family: var(--font-quran), serif;
+  line-height: 2.2;
+  color: var(--ink);
+  text-align: right;
+  direction: rtl;
+  word-spacing: normal;
+  letter-spacing: normal;
+}
+
 
 @layer components {
   .mushaf-card {

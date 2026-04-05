@@ -20,6 +20,7 @@ export const metadata = {
   },
 };
 
+
 export const viewport = {
   themeColor: '#1F7A63',
   width: 'device-width',
