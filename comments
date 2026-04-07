@@ -1,2 +1,244 @@
-- when click on the ayah -> choose need add mistake or see the tafsier or listen it 
-- make configration here for the count of check the errors
+Refactor and enhance the current Quran app based on the existing codebase, not from scratch.
+
+Important:
+- Keep the current logic where possible.
+- Do not rebuild from zero.
+- Preserve existing localStorage keys unless migration is necessary.
+- The app already has:
+  - Home
+  - Calendar
+  - Mistakes
+  - Quarters
+  - Settings
+  - Review
+  - Fix mode
+  - audio playback
+  - tafsir
+  - bookmarks
+  - streak
+  - schedule
+  - last position
+
+Main goal:
+Turn the current project from a connected prototype into a polished Quran app experience similar to modern Quran apps, with an immersive reading flow, strong navigation, cleaner architecture, and more Islamic daily-use features.
+
+==================================================
+1) MAIN ISSUES THAT MUST BE FIXED
+==================================================
+
+A. Reader immersion issue
+- On the Quran reading screen, the header and bottom navigation should be hidden by default.
+- They should only appear when the user taps on the screen.
+- If the user taps again, they should hide again.
+- This behavior should exist only in reading mode, not across all app screens.
+
+B. Navigation issue inside reading mode
+- Add a header icon that opens a sidebar/drawer from inside the Quran reading page.
+- The drawer should contain two tabs:
+  1. Hizb Quarters
+  2. Surahs
+
+C. Quarters logic issue
+- Remove old or confusing logic related to “surah quarters”.
+- I want real Quran navigation by:
+  - hizb
+  - rub el hizb / quarter of hizb
+- The app should use the correct Quran structure and labels in Arabic.
+
+D. Tafsir issue
+- Set default tafsir to: التفسير الميسر
+- Persist the selected tafsir in settings
+- Handle tafsir API failure gracefully
+- Do not let tafsir failure break the reading UI
+
+E. Architecture issue
+- The app is too large and too coupled.
+- Split the app into clean reusable modules/components/hooks.
+- Keep the current behavior but refactor for maintainability.
+
+F. Audio stability issue
+- Keep sequential ayah playback
+- Ensure next ayah logic is always correct
+- Avoid stale state and wrong ayah continuation
+- Keep reciter switching stable
+
+==================================================
+2) QURAN READER EXPERIENCE
+==================================================
+
+Implement a real immersive Quran reader screen:
+
+- Hide header and bottom navigation by default
+- Tap once anywhere on the reading area => show header and bottom navigation
+- Tap again => hide them
+- Keep transitions smooth
+- Make the reader clean and distraction-free like Quran apps
+
+Header requirements in reader mode:
+- Back button
+- Surah / page / hizb summary
+- Sidebar open icon
+- Optional audio icon
+- Optional tafsir icon
+- Keep the header compact and mobile-friendly
+
+==================================================
+3) SIDEBAR / DRAWER INSIDE READER
+==================================================
+
+Inside the reading screen header, add an icon that opens a sidebar/drawer.
+
+The drawer should contain 2 tabs:
+
+Tab 1: Hizb Quarters
+- Show all Quran hizb quarters in order from the beginning of the Quran to the end
+- Group correctly and label clearly in Arabic
+- Every item should be clickable
+- Clicking an item should jump directly to the beginning of that quarter
+
+Example structure:
+- الحزب 1
+  - الربع 1
+  - الربع 2
+  - الربع 3
+  - الربع 4
+- الحزب 2
+  - الربع 1
+  - الربع 2
+  - الربع 3
+  - الربع 4
+
+Or, if the product language is more accurate:
+- ربع الحزب 1
+- نصف الحزب 1
+- ثلاثة أرباع الحزب 1
+- الحزب 1
+- ربع الحزب 2
+... continue in exact Quran order
+
+Tab 2: Surahs
+- Show all surahs in order
+- Allow quick search
+- Clicking a surah jumps directly to that surah
+
+==================================================
+4) NEW FEATURE: PRAYER DUAS / ADHKAR COMPANION
+==================================================
+
+Add a new feature called:
+“Adhkar & Salah Duas”
+
+Purpose:
+I want to organize the duas I say in each prayer.
+For example:
+- I divide the prayers into Fajr / Dhuhr / Asr / Maghrib / Isha
+- Inside each prayer I can save multiple duas
+- I want different duas for:
+  - before salah
+  - after takbir / istiftah
+  - ruku
+  - first sujood
+  - between the two sujoods
+  - second sujood
+  - tashahhud
+  - after salam
+
+Requirements:
+- Add a new screen/section for “Adhkar & Salah Duas”
+- Organize by prayer:
+  - Fajr
+  - Dhuhr
+  - Asr
+  - Maghrib
+  - Isha
+- Inside each prayer, organize by prayer position/stage:
+  - before salah
+  - opening dua
+  - ruku
+  - first sujood
+  - between sujoods
+  - second sujood
+  - tashahhud
+  - after salam
+- Each stage can contain 3 or more duas
+- User can:
+  - add dua
+  - edit dua
+  - delete dua
+  - reorder duas
+  - mark favorite duas
+  - choose rotation mode:
+    - fixed order
+    - random
+    - manual selection
+- Save everything in localStorage first
+- Keep the architecture ready for future sync/API
+
+Optional enhancements:
+- counter for repetition
+- notes under each dua
+- quick checklist for each prayer
+- “today’s dua plan”
+- show one suggested dua for the current prayer
+- allow Arabic text + source/reference field
+- allow categories like:
+  - short
+  - long
+  - emotional
+  - forgiveness
+  - رزق
+  - ثبات
+  - parents
+  - healing
+
+==================================================
+5) OTHER FEATURES TO ADD TO FEEL LIKE REAL QURAN APPS
+==================================================
+
+Please also improve these product areas:
+
+- Last read card with one-tap continue
+- Better bookmarks:
+  - notes
+  - tags
+  - folders/categories
+- Search inside Quran
+- Better page/surah/juz/hizb jump controls
+- Better review entry points from calendar
+- Daily ورد / ورد اليوم
+- Better progress dashboard
+- Better reading typography controls
+- Better tafsir presentation
+- Better tajweed legend modal
+- Better mobile drawer and gesture behavior
+- Optional night reading mode polish
+
+==================================================
+6) CODE QUALITY REQUIREMENTS
+==================================================
+
+- Refactor, do not rewrite from zero
+- Use clean React patterns
+- Split code into:
+  - reader components
+  - sidebar components
+  - audio hook
+  - tafsir hook
+  - prayer duas module
+  - storage helpers
+  - constants/data maps
+- Keep responsive behavior strong on mobile
+- Avoid brittle state logic
+- Avoid duplicated logic for navigation and Quran structures
+
+Final expected result:
+A polished Quran app with:
+- immersive reading mode
+- tap-to-show / tap-to-hide reader chrome
+- sidebar with Hizb Quarters + Surahs
+- correct Quran quarter navigation
+- stable audio
+- proper tafsir behavior
+- better bookmarks and reading UX
+- new Adhkar & Salah Duas feature organized by each prayer and each prayer position
+- clean modular code that is easy to maintain
